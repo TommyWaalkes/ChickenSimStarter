@@ -1,0 +1,21 @@
+<div *ngIf="farm !== null">
+  <p>Name: {{farm.name}}</p>
+  <p>Seeds: {{farm.seeds}}</p>
+  <p>Farm Id: {{farm.id}} </p>
+  <button (click)="FarmSeeds()">Farm More Seeds</button>
+</div>
+<div *ngIf="farm === null">
+  <p>Loading Farm Data...</p>
+</div>
+<div class="grid">
+<div class="border gridLayout" *ngFor="let c of chickens; i as index">
+  <p>Name: {{c.name}}</p>
+  <p>ID: {{c.id}}</p>
+  <p>Smarts {{c.smarts}}</p>
+  <p>Strength: {{c.strength}}</p>
+  <p>Speed: {{c.speed}}</p>
+  <p>Color: {{c.color}}</p>
+
+  <button *ngIf="farm.seeds>0" (click)="Feed(farm.id, c.id)">Feed {{c.name}}</button>
+</div>
+ </div>
